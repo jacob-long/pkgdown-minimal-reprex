@@ -1,0 +1,28 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "README-"
+)
+```
+
+# pkgdown.test
+
+The goal of pkgdown.test is to ...
+
+## Example
+
+This is a basic example which shows you how to solve a common problem:
+
+```{r example}
+library(pkgdown.test)
+fit <- lm(mpg ~ wt, data = mtcars)
+s <- scale_model(fit)
+updating_function(s)
+```

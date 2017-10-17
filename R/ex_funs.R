@@ -1,27 +1,21 @@
 #' @export
 
-scale_model <- function(model, scale = TRUE) {
+do_something <- function(thing, do.it = TRUE) {
 
   # Get call
   call <- match.call()
 
-  # Scale data if scale == TRUE
-  if (scale == TRUE) {
-    data <- model.frame(model)
-    data <- as.data.frame(scale(data))
-    scaled_model <- update(model, data = data)
-  } else {
-    scaled_model <- model
-  }
+  # Don't actually do anything for simplicity
+  something <- thing
 
   # Create return object
-  out <- list(model = scaled_model)
+  out <- list(something = something)
 
   # Add call
   attr(out, "call") <- call
 
   # Add class
-  class(out) <- "scaled_model"
+  class(out) <- "something"
 
   return(out)
 
@@ -29,7 +23,7 @@ scale_model <- function(model, scale = TRUE) {
 
 #' @export
 
-getCall.scaled_model <- function(x, ...) {
+getCall.something <- function(x, ...) {
 
   return(attr(x, "call"))
 
@@ -37,8 +31,8 @@ getCall.scaled_model <- function(x, ...) {
 
 #' @export
 
-updating_function <- function(model) {
+updating_function <- function(thing) {
 
-  update(model, scale = F)
+  update(thing, do.it = FALSE)
 
 }

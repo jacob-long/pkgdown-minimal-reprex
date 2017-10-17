@@ -22,7 +22,7 @@ This is a basic example which shows you how to solve a common problem:
 
 ```{r example}
 library(pkgdown.test)
-fit <- lm(mpg ~ wt, data = mtcars)
-s <- scale_model(fit)
-updating_function(s)
+obj <- 5
+the_thing <- do_something(obj)
+updating_function(the_thing)
 ```

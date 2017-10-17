@@ -2,30 +2,28 @@
 
 scale_model <- function(model, scale = TRUE) {
 
+  # Get call
   call <- match.call()
 
+  # Scale data if scale == TRUE
   if (scale == TRUE) {
-    scaled_model <- scale_it(model)
+    data <- model.frame(model)
+    data <- as.data.frame(scale(data))
+    scaled_model <- update(model, data = data)
   } else {
     scaled_model <- model
   }
 
+  # Create return object
   out <- list(model = scaled_model)
 
+  # Add call
   attr(out, "call") <- call
+
+  # Add class
   class(out) <- "scaled_model"
 
   return(out)
-
-}
-
-
-scale_it <- function(model) {
-
-  data <- model.frame(model)
-  data <- as.data.frame(scale(data))
-  scaled_model <- update(model, data = data)
-  return(scaled_model)
 
 }
 
